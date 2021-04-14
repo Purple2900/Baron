@@ -264,6 +264,7 @@ const G = ( function () {
 			//PS.gridPlane( DARKNESS_PLANE );
 			//PS.color( PS.ALL, PS.ALL, PS.COLOR_BLACK );
 			//PS.alpha( PS.ALL, PS.ALL, PS.ALPHA_OPAQUE );
+			const TEAM = "Pawn";
 
 
 
