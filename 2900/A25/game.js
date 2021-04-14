@@ -269,6 +269,22 @@ const G = ( function () {
 
 			_pathmap = PS.pathMap( _imagemap );
 			_timer_id = PS.timerStart( 6, _actor_animate );
+
+			// This code should be the last thing
+			// called by your PS.init() handler.
+			// DO NOT MODIFY IT, except for the change
+			// explained in the comment below.
+
+			PS.dbLogin("imgd2900", TEAM, function (id, user) {
+				if (user === PS.ERROR) {
+					return;
+				}
+				PS.dbEvent(TEAM, "startup", user);
+				PS.dbSend(TEAM, PS.CURRENT, {discard: true});
+			}, {active: true});
+
+			// Change the false in the final line above to true
+			// before deploying the code to your Web site.
 		},
 		touch : function ( x, y ) {
 			//PS.debug( "PS.touch() @ " + x + ", " + y + "\n" );
