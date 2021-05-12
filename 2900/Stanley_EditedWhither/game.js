@@ -497,11 +497,19 @@ const W = ( function () {
 
 	const _start_level = function ( val ) {
 		_level = val;
-		if ( !_music && ( _level > 0 ) ) {
+		if ( !_music && ( _level > 0 && _level < 20 ) ) { //added "&& _level < 20"
 			_music = true;
 			PS.statusText( "Whither" );
+			//PS.audioPlay("l_piano_a1"); //Second attempt
 			//PS.audioPlayChannel( PS.piano('l_piano_a1', true)); //Attempt to add different audio.
 			PS.audioPlayChannel( _channel );
+		}
+		else if ( !_music && ( _level == 20 ) ){ //Third attempt
+			_music = true;
+			PS.statusText( "Whither" );
+			PS.audioPlay("l_piano_a1");
+			//_channel = "l_piano_a1"; //Reassign _channel for level 20
+			//PS.audioPlayChannel(_channel); //Second attempt
 		}
 
 		/*Plays only in level 20 - Did not work.
